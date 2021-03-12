@@ -163,14 +163,14 @@ describe('Queue', () => {
       expect(queue.queueControl).toEqual([88, 19]);
     });
 
-    it("Should return 'Stack Overflow' if the stack is full", () => {
+    it("Should return 'Queue Overflow' if the queue is full", () => {
       queue.MAX_SIZE = 1;
       queue.enqueue(19);
 
       expect(queue.enqueue(88)).toEqual('Queue Overflow');
     });
 
-    it('Should return false if the stack is full', () => {
+    it('Should return false if the queue is full', () => {
       queue.MAX_SIZE = 1;
       queue.enqueue(19);
 
