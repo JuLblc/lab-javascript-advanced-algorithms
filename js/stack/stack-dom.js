@@ -37,10 +37,12 @@ const generateWarningStack = type => {
     // ... your code goes here
     console.log("underflow")
     warningBottomStack.style.display = "block";
+    warningBottomStack.innerHTML = type;
   } else if (type === 'overflow') {
     // ... your code goes here
     console.log("overflow")
     warningTopStack.style.display = "block";
+    warningTopStack.innerHTML = type;
   }
 };
 
@@ -49,6 +51,8 @@ const addToStack = () => {
   if (newStack.push(stackInput.value) === "Stack Overflow"){
     generateWarningStack('overflow');
   } else {
+    warningBottomStack.style.display = "none";
+    warningBottomStack.innerHTML = "";
     renderListStack();
   } 
   clearStackInput();
@@ -59,6 +63,8 @@ const removeFromStack = () => {
   if (newStack.pop() === "Stack Underflow"){
     generateWarningStack('underflow');
   } else {
+    warningTopStack.style.display = "none";
+    warningTopStack.innerHTML = "";
     renderListStack();
   }
   clearStackInput();
